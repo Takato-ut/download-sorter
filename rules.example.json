@@ -1,0 +1,30 @@
+{
+  "source": "%USERPROFILE%\\Downloads",
+  "documentsRoot": "%USERPROFILE%\\Documents",
+  "minAgeMinutes": 10,
+  "duplicateDest": "_ToDelete\\Duplicates",
+  "extractedZip": {
+    "enabled": true,
+    "minRatio": 0.9,
+    "dest": "_ToDelete\\ExtractedZips",
+    "ruleName": "extracted-zip"
+  },
+  "papers": {
+    "enabled": true,
+    "python": "%LOCALAPPDATA%\\DownloadSorter\\venv\\Scripts\\python.exe",
+    "paperRoot": "Papers",
+    "detectUnmatchedPdf": true,
+    "ruleName": "paper-by-doi",
+    "recheckRuleName": "paper-recheck",
+    "acceptTypes": ["journal-article", "posted-content", "proceedings-article", "book-chapter", "review"]
+  },
+  "skipPatterns": ["\\.crdownload$", "\\.part$", "\\.partial$", "\\.tmp$", "^~\\$", "^desktop\\.ini$", "^\\.~lock"],
+  "rules": [
+    { "name": "translation", "paperKind": "trans", "pattern": "^(translated_|ja-).*\\.(pdf|docx)$", "dest": "Papers\\_Unmatched\\Translations" },
+    { "name": "supplement", "paperKind": "supp", "pattern": "MOESM|_ESM\\.|_suppl_|supplementary_|_Supplemental|-sup-\\d+", "dest": "Papers\\_Unmatched\\Supplements" },
+    { "name": "paper", "paperKind": "main", "dest": "Papers\\_Unidentified", "pattern": "^1-s2\\.0-.*\\.pdf$|^s\\d{5}-\\d{3}-.*\\.pdf$|^10\\.\\d{4,}.*\\.pdf$|^\\d{4}\\.\\d{4,5}(v\\d+)?\\.pdf$| et al\\.?.*\\.pdf$|^PMC\\d+.*\\.pdf$" },
+    { "name": "scan", "pattern": "^\\d{14}.*\\.pdf$", "dest": "_Inbox\\Scans" },
+    { "name": "script", "pattern": "\\.(py|r|ipynb|sh|bat)$", "dest": "Scripts" },
+    { "name": "installer", "pattern": "\\.(exe|msi|msix|msixbundle|appx|dmg)$", "dest": "_ToDelete\\Installers" }
+  ]
+}

@@ -1,0 +1,7 @@
+# personal configuration and data — never commit
+rules.json
+paper_index.json
+logs/
+*.csv
+__pycache__/
+*.pyc
